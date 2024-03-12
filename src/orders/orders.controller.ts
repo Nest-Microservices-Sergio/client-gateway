@@ -1,11 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Param,
-  Inject,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Inject } from '@nestjs/common';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { ORDER_SERVICE } from 'src/config';
 import { ClientProxy } from '@nestjs/microservices';
@@ -28,6 +21,6 @@ export class OrdersController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.ordersClient.send('findOneOrder', { id });
+    return this.ordersClient.send('findOneOrder', {});
   }
 }
